@@ -8,7 +8,6 @@ def _generate_name() -> str:
 
     return str(name)
 
-
 def read_metadata(path: str) -> list:
     """Returns a list of dictionaries containing all metadata found in file"""
     try:
@@ -19,13 +18,12 @@ def read_metadata(path: str) -> list:
     except Exception as e:
         return e
 
-def erase_metadata(path: str) -> str:
+def erase_metadata(path: str) -> bool:
     """ Erases all metadata found in file """
     try:
         with ExifTool() as et:
             et.execute("-all=", path)
-            return "Metadata removed successfully"
+            return True
     
     except Exception as e:
-        return str(e)
-
+        return False

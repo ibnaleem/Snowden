@@ -25,5 +25,5 @@ def erase_metadata(path: str) -> bool:
             et.execute("-all=", path)
             return True
     
-    except Exception as e:
+    except Exception:
         return False

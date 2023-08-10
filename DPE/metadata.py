@@ -11,8 +11,8 @@ def read_metadata(path: str) -> list:
     except Exception as e:
         return e
 
-def remove_metadata(path: str) -> str:
-    """ Removes all metadata found in file """
+def erase_metadata(path: str) -> str:
+    """ Erases all metadata found in file """
     try:
         with ExifTool() as et:
             et.execute("-all=", path)

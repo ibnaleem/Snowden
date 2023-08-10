@@ -1,6 +1,8 @@
 import subprocess
 from exiftool import ExifTool
 
+ESSENTIAL_METADATA_FIELDS = ['EXIF:Make', 'EXIF:Model', 'XMP:Creator', 'XMP:Title', ]
+
 def read_metadata(path:str) -> list:
     """Returns a list of dictionaries containing all metadata found in file"""
     try:
@@ -8,11 +10,5 @@ def read_metadata(path:str) -> list:
             metadata = et.get_metadata(path)
             return metadata
 
-    except TypeError:
-        return "Provide file path as string"
-
-    except FileNotFoundError:
-        return "File does not exist"
-
-    except subprocess.CalledProcessError:
-        return "Check file permissions or file existence, or run with admin perms"
+    except Exception as e:
+        return e

@@ -9,6 +9,8 @@ from rich.style import Style
 encrypted_list = []
 
 def encrypt_item(path, password):
+
+    """ Encrypts a file using AES and Password """
     
     try:
         with open(path, "rb") as file:

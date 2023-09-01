@@ -19,8 +19,6 @@ def verify(path, hash_algorithm: str, original_hash:str) -> bool or str:
     except Exception as e:
         return str(e)
 
-import hashlib
-
 def calculate_hash(path, hash_algorithm: str) -> bool or str:
     """Calculate the hash value of a file and store it"""
     try: 

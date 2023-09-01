@@ -29,3 +29,21 @@ def encrypt(path, key=None):
     encrypted_list.append(path)
 
     return path
+
+def decrypt(path, key):
+
+    """Decrypts file - Directory Decryotion Coming Soon"""
+
+    with open(path, "rb") as encrypted_file:
+        encrypted_data = encrypted_file.read()
+
+    f = Fernet(key)
+
+    decrypted_data = f.decrypt(encrypted_data)
+
+    with open(path, "wb") as decrypted_file:
+        decrypted_file.write(decrypted_data)
+
+    decrypted_list.append(path)
+
+    return path

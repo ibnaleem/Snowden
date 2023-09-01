@@ -1,6 +1,7 @@
 import os, sys, hashlib
 
 encrypted_list = []
+decrypted_list = []
 
 def encrypt_item(path, password):
 
